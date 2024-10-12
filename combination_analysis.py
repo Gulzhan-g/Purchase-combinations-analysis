@@ -1,12 +1,11 @@
-
 import csv
 import pandas as pd
 import numpy as np
 from itertools import combinations
-df=pd.read_csv('C:\\Users\\ASUS\\Desktop\\PYTHON\\DataSet\\Orders\\train_1.csv',sep=';', encoding='utf-8')
+df = pd.read_csv('data/train_1.csv', sep=';', encoding='utf-8')
 df2=df[['Order ID','Product Name',"order_count"]].copy()
 df2 = df2.rename(columns = {"Order ID": "Order_ID","Product Name":"item","order_count":"amount"})
-
+# Find the number of combinations that have bought the most or the least
 # I create a list from the listbox that contains all the products in each of the purchases
 mylist = df2.pivot(index = 'Order_ID',
           columns = 'item',
